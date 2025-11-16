@@ -3,6 +3,14 @@ plugins {
     id 'net.neoforged.moddev.legacyforge'
 }
 
+repositories {
+    maven { url = "https://api.modrinth.com/maven" }
+    maven { name = 'jitpack'; url = 'https://jitpack.io' }
+    maven { name = 'ParchmentMC'; url = 'https://maven.parchmentmc.org' }
+    maven { name = 'cursemaven'; url = 'https://www.cursemaven.com' }
+    flatDir name: 'libs', dirs: "$projectDir/libs"
+}
+
 mixin {
     add(sourceSets.main, "${mod_id}.refmap.json")
 
@@ -48,8 +56,10 @@ sourceSets.main.resources.srcDir 'src/generated/resources'
 dependencies {
     compileOnly project(":common")
     annotationProcessor("org.spongepowered:mixin:0.8.5-SNAPSHOT:processor")
+    modImplementation "curse.maven:pehkui-319596:5393101"
+    modImplementation "curse.maven:female-gender-neoforge-481655:4896743"
+    modImplementation "curse.maven:jei-238222:7181650"
 }
-
 jar {
     finalizedBy('reobfJar')
     manifest.attributes([

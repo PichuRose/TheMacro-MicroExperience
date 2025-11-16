@@ -1,5 +1,6 @@
 package com.pichurose.tmme;
 
+import com.pichurose.tmme.utils.PehkuiSupport;
 import net.fabricmc.api.ModInitializer;
 
 public class TheMacroMicroExperience implements ModInitializer {
@@ -14,5 +15,8 @@ public class TheMacroMicroExperience implements ModInitializer {
         // Use Fabric to bootstrap the Common mod.
         Constants.LOG.info("Hello Fabric world!");
         CommonClass.init();
+        PehkuiSupport.setup();
     }
+
+
 }
